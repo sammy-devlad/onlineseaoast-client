@@ -1,0 +1,111 @@
+@media (max-width: 767px) {
+  .txtDialog .txtDialogContent {
+    width: 390px !important;
+  }
+  .hiddenMobile {
+    display: none !important;
+  }
+  .hiddenWide {
+    display: block !important;
+  }
+  #userHeader {
+    padding: 20px 10px !important;
+  }
+  #userHeader nav .menu ul:not(.dropdown-menu) {
+    margin-bottom: -10px;
+  }
+  #sideBar {
+    width: 0;
+    overflow: hidden;
+    &.toggled {
+      width: 100vw !important;
+      ul {
+        li {
+          &.sub-header {
+            display: block;
+          }
+          a {
+            span {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  .pagenavTitle {
+    font-size: 17px;
+  }
+  .breadcrumb-item.active {
+    span {
+      font-size: 14px !important;
+    }
+  }
+  .accountOv {
+    .accountOVBox {
+      width: 100%;
+      &.balance {
+        background-color: #f2f4f8;
+        height: 100px;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h2 {
+          font-size: 28px;
+          font-weight: 700;
+        }
+        .sendIconBox {
+          width: 43px;
+          height: 50px;
+          background: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10px;
+          a {
+            &.sendLink {
+              i {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+    .alert {
+      width: 100%;
+    }
+  }
+  .creditCard .creditCardNumber ul li {
+    letter-spacing: 7px;
+  }
+}
+
+@media (min-width: 767px) {
+  .hiddenMobile {
+    display: block !important;
+  }
+  .hiddenWide {
+    display: none !important;
+  }
+}
+
+@media (max-width: 380px) {
+  #userHeader nav .logo {
+    img {
+      width: 200px;
+    }
+  }
+  .pagenavTitle {
+    font-size: 17px;
+  }
+  .creditCard .creditCardNumber ul li {
+    letter-spacing: 5px;
+  }
+  .txtDialog .txtDialogContent {
+    width: 350px !important;
+  }
+}

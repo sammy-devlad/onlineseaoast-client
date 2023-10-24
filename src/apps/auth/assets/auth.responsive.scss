@@ -1,0 +1,36 @@
+@media screen and (min-width: 768px) {
+  .auth-wrapper {
+    .auth-card {
+      width: 600px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .auth-wrapper .auth-card {
+    width: 90% !important;
+    &.setup {
+      margin-top: 30px;
+    }
+    .authCardBody {
+      .smButton {
+        button {
+          width: 100%;
+        }
+        h2 {
+          width: 100%;
+          text-align: center;
+          margin-top: 10px;
+          margin-left: 0;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .auth-wrapper .auth-card .authCardHeader h2 {
+    font-size: 30px;
+  }
+}

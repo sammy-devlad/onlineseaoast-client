@@ -1,0 +1,122 @@
+@media (max-width: 960px) {
+  #homeHeader #topHeader {
+    justify-content: center !important;
+  }
+  #homeHeader #topHeader ul.navSec {
+    justify-content: center !important;
+  }
+}
+@media (max-width: 767px) {
+  #homeHeader #topHeader {
+    display: none !important;
+  }
+  #homeHeader #topHeaderTwo {
+    padding: 15px 10px;
+  }
+  #homeHeader #topHeaderTwo ul li.logo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  #homeHeader #topHeaderTwo ul li.logo img {
+    width: 200px;
+  }
+  #homeHeader #topHeaderTwo ul li.mobNav button {
+    display: block;
+  }
+  #homeHeader .mobileNav {
+    display: none;
+    margin: 0;
+    padding-left: 0;
+    background: #fff;
+    left: 0;
+    padding: 1rem 15px;
+    position: absolute;
+    right: 0;
+    z-index: 999;
+    transition: all 0.8s !important;
+  }
+  #homeHeader .mobileNav.active {
+    display: block;
+  }
+  #homeHeader .mobileNav li {
+    position: relative;
+    white-space: nowrap;
+  }
+  #homeHeader .mobileNav li a {
+    border-bottom: 1px solid #00808c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    margin-bottom: 8px;
+    transition: 0.3s;
+    background: #fff;
+    height: 56px;
+    width: 100%;
+    transition: 0.3s;
+    text-transform: uppercase;
+  }
+  #homeHeader .mobileNav li a:hover {
+    color: #364b5e !important;
+    text-decoration: none !important;
+  }
+  #bannerCarousel .carousel-inner .carousel-item .carouselContent {
+    text-align: center;
+  }
+  #bannerCarousel .carousel-inner .carousel-item .carouselContent > div {
+    width: 95%;
+  }
+  #bannerCarousel .carousel-inner .carousel-item .carouselContent .welcomeTxt-2,
+  #bannerCarousel .carousel-inner .carousel-item .carouselContent .welcomeTxt-1 {
+    font-size: 33px;
+    line-height: 57px;
+  }
+  .featureBox {
+    margin-top: 30px;
+  }
+  .sectionFour {
+    height: 600px;
+  }
+  .sectionFour .secivBox {
+    padding: 10px;
+  }
+  .sectionV {
+    margin-top: -37px !important;
+  }
+  #homeFooter {
+    height: 100%;
+  }
+  #homeFooter .newsLester {
+    margin: 20px 0;
+  }
+  .call-to-action {
+    height: 300px;
+    background-position: center;
+  }
+  .call-to-action .ctaContent {
+    text-align: center;
+  }
+  .call-to-action .ctaContent .inner-title h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: 380px) {
+  .form-subscribe .submit {
+    right: 25px;
+  }
+}
+@media (max-width: 380px) {
+  .sectionFour {
+    height: 620px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .heroSection {
+    background-size: 250%;
+    background-position: center 100px;
+    background-attachment: fixed;
+    font-size: 0.875rem;
+  }
+}/*# sourceMappingURL=home.responsive.css.map */

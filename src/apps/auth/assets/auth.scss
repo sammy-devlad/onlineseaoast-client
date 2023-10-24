@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+$primary: #00808c;
+$primary-dark: #1e545f;
+$secondary: #e20f38;
+
+.auth-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .auth-card {
+    -webkit-box-shadow: 0 14px 25px rgb(0 0 0 / 16%);
+    box-shadow: 0 14px 25px #00000029;
+    -webkit-transition: -webkit-box-shadow 0.1s ease-in-out;
+    transition: -webkit-box-shadow 0.1s ease-in-out;
+    transition: box-shadow 0.1s ease-in-out;
+    transition: box-shadow 0.1s ease-in-out, -webkit-box-shadow 0.1s ease-in-out;
+    border-radius: 0;
+    display: flex;
+    flex-wrap: wrap;
+    .authCardHeader {
+      padding: 10px 20px;
+      width: 100%;
+      background-color: gainsboro;
+      .authLogo {
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 40px;
+        font-family: "Nunito Sans", sans-serif;
+        text-transform: capitalize;
+        color: #3f3453;
+        margin: 14px 0;
+        span {
+          color: $primary;
+        }
+      }
+      h4 {
+        font-size: 14px;
+      }
+    }
+    .authCardBody {
+      padding: 20px;
+      width: 100%;
+      .smButton {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        &.reg {
+          button {
+            width: 100%;
+          }
+        }
+        &.setup {
+          justify-content: space-between;
+          button {
+            width: 46%;
+          }
+        }
+
+        button {
+          width: 40%;
+        }
+        h2 {
+          font-size: 20px;
+          margin-left: 50px;
+        }
+      }
+    }
+  }
+
+  .imGBox {
+    margin-top: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
+.form-select {
+  border-radius: 0 !important;
+}
