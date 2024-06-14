@@ -128,8 +128,8 @@ const AccountDetails = () => {
                     <div className="progresBox">
                       <div className="label">
                         <h5>
-                          account status :{" "}
-                          <span className="text-success">Active</span>
+                          Overdraft limit :{" "}
+                          <span className="text-warning">$200,000</span>
                         </h5>
                       </div>
                     </div>

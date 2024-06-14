@@ -139,22 +139,24 @@ const Home = () => {
         className="in-section sectionTwo setBg row justify-content-center alignCenter"
         data-bg="/home/sectwo.webp"
       >
-        <div className="col-lg-6">
-          <div className="sectoContent">
-            <div className="sectwoImgBox" data-aos="zoom-in">
-              <img src="/home/sail.png" alt="sail" />
-            </div>
-            <div className="sectwoTxtBox">
-              <h2 className="text-center" data-aos="fade-up">
-                {" "}
-                When you bank with Seacoast,
-                <br /> you have options.
-              </h2>
-              <p data-aos="fade-down">
-                Life can get hectic, but that doesn't mean your banking has to.
-                At Seacoast, we make banking easy and convenient by offering
-                services that allow you to bank anywhere, anytime.
-              </p>
+        <div className="row justify-content-center align-item-center">
+          <div className="col-lg-6">
+            <div className="sectoContent">
+              <div className="sectwoImgBox" data-aos="zoom-in">
+                <img src="/home/sail.png" alt="sail" />
+              </div>
+              <div className="sectwoTxtBox">
+                <h2 className="text-center" data-aos="fade-up">
+                  {" "}
+                  When you bank with Seacoast,
+                  <br /> you have options.
+                </h2>
+                <p data-aos="fade-down">
+                  Life can get hectic, but that doesn't mean your banking has
+                  to. At Seacoast, we make banking easy and convenient by
+                  offering services that allow you to bank anywhere, anytime.
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -1,9 +1,6 @@
-$primary: #00808c;
-$primary-dark: #1e545f;
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Montserrat:wght@500&display=swap");
-@import "./vendors/fontawesome-free-v6/css/all.min.css";
-
+@import "../vendors/fontawesome-free-v6/css/all.min.css";
 @font-face {
   font-family: PFBeauSansPro-Bold;
   font-style: normal;
@@ -22,7 +19,6 @@ $primary-dark: #1e545f;
   font-weight: normal;
   src: url(/home/fonts/proximanova.otf);
 }
-
 html,
 body {
   min-height: 100%;
@@ -37,29 +33,27 @@ body {
 body {
   overflow-x: hidden !important;
   background: url("/home/bg_main.png");
-
   background-position: 50% 0;
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 1;
   /* custom scrollbar */
-  &::-webkit-scrollbar {
-    display: none !important;
-  }
+}
+body::-webkit-scrollbar {
+  display: none !important;
 }
 div#root {
   overflow-x: hidden;
 }
 .breadcrumb li {
-  color: $primary;
+  color: #00808c;
   text-transform: capitalize;
 }
 .breadcrumb-item a {
   font-weight: 500;
   font-size: 18px;
   position: relative;
-
-  color: $primary;
+  color: #00808c;
 }
 .breadcrumb-item.active {
   font-weight: 500;
@@ -79,18 +73,15 @@ div#root {
 ::-webkit-scrollbar {
   width: 20px;
 }
-
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
   background-color: #707d91;
   border-radius: 20px;
   border: 9px solid transparent;
   background-clip: content-box;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background-color: #7888a1;
 }
@@ -103,18 +94,17 @@ div#root {
   -webkit-background-size: cover;
 }
 .text-primary {
-  color: $primary !important;
+  color: #00808c !important;
 }
 a {
-  color: $primary !important;
+  color: #00808c !important;
   text-decoration: none !important;
-  &.active,
-  &:hover,
-  &:focus {
-    text-decoration: underline !important;
-  }
 }
-
+a.active,
+a:hover,
+a:focus {
+  text-decoration: underline !important;
+}
 h2,
 h3,
 h4,
@@ -125,112 +115,102 @@ h6 {
   font-weight: 600;
   text-transform: none;
 }
-
 p {
   font-family: "Lato", sans-serif;
 }
-
 ul.unstyled {
   list-style: none !important;
 }
-
-a {
-  &.btn-primary,
-  &.btn-outline-primary {
-    text-decoration: none !important;
-  }
+a.btn-primary,
+a.btn-outline-primary {
+  text-decoration: none !important;
 }
 .btn.btn-primary {
-  background: $primary !important;
+  background: #00808c !important;
   border: none;
   border-radius: 0;
   color: #fff !important;
   font-weight: 700;
-
   text-transform: capitalize;
   z-index: 2;
   transition: all 0.3s ease;
   position: relative;
-  &::after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 100%;
-    top: 0;
-    right: 0;
-    z-index: -1;
-    background: #fff;
-    transition: all 0.3s ease;
-  }
-  &:hover {
-    background-color: #000 !important;
-    border-color: #000 !important;
-    color: #000 !important;
-    &::after {
-      left: 0;
-      width: 100%;
-    }
-  }
 }
-
+.btn.btn-primary::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+.btn.btn-primary:hover {
+  background-color: #000 !important;
+  border-color: #000 !important;
+  color: #000 !important;
+}
+.btn.btn-primary:hover::after {
+  left: 0;
+  width: 100%;
+}
 .btn.btn-outline-primary {
   background: transparent;
-  border: 2px solid $primary-dark;
-  border-color: $primary-dark !important;
+  border: 2px solid #1e545f;
+  border-color: #1e545f !important;
   border-radius: 0;
-  color: $primary-dark !important;
+  color: #1e545f !important;
   z-index: 1;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
   overflow: hidden;
-  &::after {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    transition: all 0.3s ease;
-    -webkit-transform: scale(0.1);
-    transform: scale(0.1);
-  }
-  &:hover {
-    color: #fff !important;
-    &::after {
-      background: $primary-dark;
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-  }
 }
-
+.btn.btn-outline-primary::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+  -webkit-transform: scale(0.1);
+  transform: scale(0.1);
+}
+.btn.btn-outline-primary:hover {
+  color: #fff !important;
+}
+.btn.btn-outline-primary:hover::after {
+  background: #1e545f;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
 .in-section {
   display: flow-root;
   box-sizing: border-box;
   padding-top: 40px;
   padding-bottom: 40px;
-  .in-section-title {
-    text-align: center;
-    h2 {
-      font-size: 35px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      margin-bottom: 35px;
-      position: relative;
-      text-transform: uppercase;
-      span {
-        color: $primary;
-      }
-    }
-  }
 }
-
+.in-section .in-section-title {
+  text-align: center;
+}
+.in-section .in-section-title h2 {
+  font-size: 35px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 35px;
+  position: relative;
+  text-transform: uppercase;
+}
+.in-section .in-section-title h2 span {
+  color: #00808c;
+}
 .alignCenter {
   align-items: center !important;
 }
-
 .formLoader {
   margin-right: 10px;
 }

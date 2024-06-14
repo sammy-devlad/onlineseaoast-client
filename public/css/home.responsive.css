@@ -68,7 +68,11 @@
     width: 95%;
   }
   #bannerCarousel .carousel-inner .carousel-item .carouselContent .welcomeTxt-2,
-  #bannerCarousel .carousel-inner .carousel-item .carouselContent .welcomeTxt-1 {
+  #bannerCarousel
+    .carousel-inner
+    .carousel-item
+    .carouselContent
+    .welcomeTxt-1 {
     font-size: 33px;
     line-height: 57px;
   }
@@ -119,4 +123,4 @@
     background-attachment: fixed;
     font-size: 0.875rem;
   }
-}/*# sourceMappingURL=home.responsive.css.map */
+}

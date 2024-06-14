@@ -41,6 +41,11 @@ const TranferSB = () => {
               >
                 <TxtSameStep />
               </TxtSameContext.Provider>
+              <small style={{ color: "red" }}>
+                Warning: if you have insufficient funds in your account to cover
+                the transactions, your account is at risk of going into
+                overdraft.
+              </small>
             </div>
           </div>
         </div>

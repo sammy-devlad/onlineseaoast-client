@@ -23,6 +23,7 @@ export const setBg = () => {
 };
 
 export const BASE_URL = "https://onlineseacoast.com";
+
 export const axiosPublic = axios.create({
   baseURL: BASE_URL,
   headers: {

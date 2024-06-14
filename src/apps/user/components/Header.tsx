@@ -25,7 +25,7 @@ const Header = () => {
           <div className="menu">
             <ul>
               <li data-aos="fade-left" data-aos-delay="100">
-                <a href="mailto:support@onlineseacoastacct.net">
+                <a href="mailto:support@onlineseacoast.com">
                   <i className="fa-solid fa-envelope" data-ballon></i>
                 </a>
               </li>
