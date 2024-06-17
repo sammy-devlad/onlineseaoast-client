@@ -20,41 +20,23 @@ const LoadingPage = () => {
           position: "fixed",
           top: "0",
           zIndex: 9999,
-          backgroundColor: "rgba(0,0,0,0.6)",
+          backgroundColor: "rgb(136, 148, 171)",
         }}
       >
         <div className="logincard" data-v-be7bbc8c="">
           <div className="" data-v-be7bbc8c="">
             <div className="error-body uk-text-center" data-v-be7bbc8c="">
-              <h1
-                className="error-title uk-text-danger"
-                data-v-be7bbc8c=""
-                style={{
-                  color: "#fff",
-                  fontSize: "60px",
-                  textTransform: "capitalize",
-                }}
-              >
-                please wait
-              </h1>
-              <h3
-                className="uk-text-uppercase error-subtitle"
-                data-v-be7bbc8c=""
-              >
-                <i
-                  className="fa-solid fa-spinner fa-spin"
-                  style={{ fontSize: "60px", color: "rgb(240, 80, 110)" }}
-                ></i>
-              </h3>
+              <img src="/home/gear.gif" alt="gear" />
+
               <p
-                className="uk-text-muted mt-4 mb-4"
+                className="uk-text-muted mt- mb-4"
                 data-v-be7bbc8c=""
                 style={{
                   color: "#fff",
                   fontSize: "20px",
                 }}
               >
-                page is loading
+                Loading..
               </p>
             </div>
           </div>

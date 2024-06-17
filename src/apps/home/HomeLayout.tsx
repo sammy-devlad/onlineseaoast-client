@@ -8,6 +8,7 @@ import Nav from "./components/Nav";
 // import Footer from "./components/Footer";
 import Footer2 from "./components/Footer2";
 import useDynamicCSS from "@/hooks/useDynamicCSS";
+import LoadingPage from "@/components/LoadingPage";
 
 const HomeLayout = () => {
   const links = [
@@ -16,7 +17,7 @@ const HomeLayout = () => {
     "/css/home.css",
     "/css/home.responsive.css",
   ];
-  useDynamicCSS(links);
+  const loading = useDynamicCSS(links);
   useEffect(() => {
     AOS.init({
       offset: 0,
@@ -30,7 +31,7 @@ const HomeLayout = () => {
   return (
     <>
       <Nav />
-      <Outlet />
+      {loading ? <LoadingPage /> : <Outlet />}
 
       <Footer2 />
     </>
