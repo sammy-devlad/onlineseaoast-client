@@ -174,6 +174,7 @@ export interface IResetUserGetRes {
 export interface IPreiviewImageProps {
   closeModal: () => void;
   sendImg: () => Promise<void>;
+  previeIMG: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface ITransactions {

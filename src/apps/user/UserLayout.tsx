@@ -3,8 +3,11 @@ import { useEffect } from "react";
 import AOS from "aos";
 import useDynamicjs from "@/hooks/useDynamicjs";
 import useDynamicCSS from "@/hooks/useDynamicCSS";
+import "./assets/custom.scss";
+import { useAppSelector } from "@/hooks/useStore";
 
 const UserLayout = () => {
+  const user = useAppSelector((state) => state.user.user)!;
   const scripts = [
     "/user/dist/js/app.js",
     "/user/dist/js/store.min.js",
@@ -431,7 +434,7 @@ const UserLayout = () => {
                 data-tw-toggle="dropdown"
               >
                 <img
-                  src="https://heritagebankonline.net/media/profile/8ii.htf.jpeg"
+                  src={user.image_url}
                   height="153.6"
                   width="153.6"
                   style={{ borderRadius: "50%", objectFit: "cover" }}
@@ -441,7 +444,9 @@ const UserLayout = () => {
               <div className="dropdown-menu w-56">
                 <ul className="dropdown-content bg-primary text-white">
                   <li className="p-2">
-                    <div className="font-medium truncate">admin acct</div>
+                    <div className="font-medium truncate">
+                      {user.first_name}
+                    </div>
                   </li>
                   <li>
                     <hr className="dropdown-divider border-white/[0.08]" />

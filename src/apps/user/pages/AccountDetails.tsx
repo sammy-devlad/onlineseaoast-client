@@ -24,10 +24,11 @@ const AccountDetails = () => {
   };
 
   const previeIMG = (event: React.ChangeEvent<HTMLInputElement>) => {
+    document.getElementById("img-previewi")?.classList.add("active");
+
     var { target } = event;
     if (!target.files) return;
     setprofileImg(target.files[0]);
-    openModal();
     var outPut = document.getElementById("uploadPreview") as HTMLImageElement;
     outPut.src = URL.createObjectURL(target.files[0]);
     outPut.onload = () => {
@@ -36,11 +37,11 @@ const AccountDetails = () => {
   };
 
   const closeModal = () => {
-    document.getElementById("preiviewDialog")?.classList.remove("active");
+    document.getElementById("img-previewi")?.classList.remove("active");
   };
 
-  const openModal = () => {
-    document.getElementById("preiviewDialog")?.classList.add("active");
+  const chooseImg = () => {
+    document.getElementById("profilpics")?.click();
   };
 
   const uploadImg = () => {
@@ -60,10 +61,11 @@ const AccountDetails = () => {
           },
         }
       );
-      // console.log(data);
+      console.log(data);
       if (!data.error) {
         dispatch(updateUser(data.user));
         closeModal();
+        toast.info("Profile change successfully");
       } else {
         toast.error("Something Went Wrong");
       }
@@ -75,278 +77,321 @@ const AccountDetails = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="row">
-          {/* breadcrum     background-color: #f2f4f8; */}
-          <BreadcrumNav pagenavTitle="Account" currentPage="account details" />
-          {/* breadcrum */}
-          <div className="accountDetailBox">
-            <div className="row">
-              <div className="col-lg-5">
-                <div className="user-profile">
-                  <div className="userProfileHead">
-                    <div>
-                      <img src={user.image_url} alt="" />
-                      <button
-                        id="uploadimgBtn"
-                        className="btn bg-light avatar-xs p-0 rounded-circle profile-photo-edit"
-                        onClick={() => {
-                          uploadImg();
-                        }}
-                      >
-                        <i className="fas fa-pencil"></i>
-                      </button>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        id="fileUpload"
-                        hidden={true}
-                        onChange={previeIMG}
-                      />
-                    </div>
-                  </div>
-                  <div className="userProfileStat border-bottom ">
-                    <div className="status">
-                      <h5>
-                        status :{" "}
-                        <span className="badge text-bg-success">Success</span>
-                      </h5>
-                    </div>
-                    <div className="log">
-                      <a
-                        onClick={() => logout()}
-                        className="btn btn-primary btn-sm"
-                        href="#"
-                      >
-                        <i className="fa-solid fa-sign-out-alt"></i>
+      <div className="intro-y flex items-center mt-8">
+        <h2 className="text-lg font-medium mr-auto">
+          Accounts Details &amp; History
+        </h2>
+      </div>
+      <div className="grid grid-cols-12 gap-6 mt-5">
+        {/* <!-- BEGIN: Profile Menu --> */}
+        <div className="col-span-12 lg:col-span-4 2xl:col-span-3 flex lg:block flex-col-reverse">
+          <div className="intro-y box mt-5 lg:mt-0">
+            <div className="relative flex items-center p-iv">
+              <div className="w-12 h-12 image-fit">
+                <img
+                  src={user.image_url}
+                  height="153.6"
+                  width="153.6"
+                  style={{ borderRadius: "50%", objectFit: "cover" }}
+                />
+              </div>
+              <div className="ml-4 mr-auto">
+                <div className="font-medium text-base">admin acct</div>
+                <div className="text-slate-500">Personal Online Banking</div>
+              </div>
+            </div>
 
-                        <span>Log Off</span>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="userProfileBody">
-                    <div className="progresBox">
-                      <div className="label">
-                        <h5>
-                          Overdraft limit :{" "}
-                          <span className="text-warning">$200,000</span>
-                        </h5>
+            <div className="p-iv border-t border-slate-200/60 dark:border-darkmode-400">
+              <a className="flex items-center text-primary font-medium" href="">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  icon-name="activity"
+                  data-lucide="activity"
+                  className="lucide lucide-activity w-4 h-4 mr-2"
+                >
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>{" "}
+                Account No: {user.username}
+              </a>
+              <a className="flex items-center text-primary mt-5" href="">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  icon-name="mail"
+                  data-lucide="mail"
+                  className="lucide lucide-mail w-4 h-4 mr-2"
+                >
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>{" "}
+                Email: {user.email}
+              </a>
+
+              <a className="flex items-center text-primary mt-5" href="">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  icon-name="phone"
+                  data-lucide="phone"
+                  className="lucide lucide-phone w-4 h-4 mr-2"
+                >
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
+                </svg>{" "}
+                Mobile No: {user.phone_number}
+              </a>
+              <a className="flex items-center text-primary mt-5" href="">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  icon-name="phone"
+                  data-lucide="phone"
+                  className="lucide lucide-phone w-4 h-4 mr-2"
+                >
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
+                </svg>{" "}
+                Overdraft limit: $200,000
+              </a>
+            </div>
+
+            <div className="p-iv border-t border-slate-200/60 dark:border-darkmode-400 flex">
+              <button
+                type="button"
+                className="btn btn-primary py-1 px-2"
+                onClick={chooseImg}
+              >
+                Change Profile
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline-secondary py-1 px-2 ml-auto"
+              >
+                Account
+              </button>
+            </div>
+          </div>
+          <div className="intro-y box p-iv bg-primary text-white mt-5">
+            <div className="flex items-center">
+              <div className="font-medium text-lg">onlineseacoast</div>
+              <div className="text-xs bg-white dark:bg-primary dark:text-white text-slate-700 px-1 rounded-md ml-auto">
+                New
+              </div>
+            </div>
+            <div className="mt-4">
+              Sign up offer requires you to deposit and maintain a minimum
+              balance in order to earn the $520 bonus. For enquiries send us an
+              email support@onlineseacoast.com
+            </div>
+            <div className="font-medium flex mt-5"></div>
+          </div>
+        </div>
+        {/* <!-- END: Profile Menu --> */}
+        <div className="col-span-12 lg:col-span-8 2xl:col-span-9">
+          <div className="grid grid-cols-12 gap-6">
+            {/* <!-- BEGIN: Daily Sales --> */}
+            <div className="intro-y box col-span-12 2xl:col-span-6">
+              <div className="flex items-center px-iv py-iv sm:py-3 border-b border-slate-200/60 dark:border-darkmode-400">
+                <h2 className="font-medium text-base mr-auto">
+                  PREMIUM INDIVIDUAL ACCOUNT
+                </h2>
+                <div className="dropdown ml-auto sm:hidden">
+                  <a
+                    className="dropdown-toggle w-5 h-5 block"
+                    href="javascript:;"
+                    aria-expanded="false"
+                    data-tw-toggle="dropdown"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      icon-name="more-horizontal"
+                      data-lucide="more-horizontal"
+                      className="lucide lucide-more-horizontal w-5 h-5 text-slate-500"
+                    >
+                      <circle cx="12" cy="12" r="1"></circle>
+                      <circle cx="19" cy="12" r="1"></circle>
+                      <circle cx="5" cy="12" r="1"></circle>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div className="p-iv">
+                <div className="relative flex items-center">
+                  <table className="table table-resposive">
+                    <tbody>
+                      <tr>
+                        <th>Account Name</th>
+                        <th>Account Number</th>
+                        <th>Current Balance</th>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          {user.first_name} {user.last_name}
+                        </td>
+                        <td>{user.username}</td>
+
+                        <td>${user.balance}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            {/* <!-- END: Daily Sales -->
+        <!-- BEGIN: Announcement --> */}
+            <div className="intro-y box col-span-12 2xl:col-span-6"></div>
+            {/* <!-- END: Announcement -->
+        <!-- BEGIN: Projects -->
+
+        <!-- END: Projects -->
+
+        <!-- BEGIN: Latest Tasks --> */}
+            <div className="intro-y box col-span-12 2xl:col-span-6">
+              <div className="flex items-center px-iv py-iv sm:py-0 border-b border-slate-200/60 dark:border-darkmode-400">
+                <h2 className="font-medium text-base mr-auto">
+                  ACCOUNT HISTORY
+                </h2>
+
+                <div className="dropdown ml-auto sm:hidden">
+                  <a
+                    className="dropdown-toggle w-5 h-5 block"
+                    href="javascript:;"
+                    aria-expanded="false"
+                    data-tw-toggle="dropdown"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      icon-name="more-horizontal"
+                      data-lucide="more-horizontal"
+                      className="lucide lucide-more-horizontal w-5 h-5 text-slate-500"
+                    >
+                      <circle cx="12" cy="12" r="1"></circle>
+                      <circle cx="19" cy="12" r="1"></circle>
+                      <circle cx="5" cy="12" r="1"></circle>
+                    </svg>
+                  </a>
+                </div>
+                <ul
+                  className="nav nav-link-tabs w-auto ml-auto hidden sm:flex"
+                  role="tablist"
+                >
+                  <li
+                    id="latest-tasks-last-week-tab"
+                    className="nav-item"
+                    role="presentation"
+                  >
+                    <a
+                      href="javascript:;"
+                      className="nav-link py-iv"
+                      data-tw-target="#latest-tasks-last-week"
+                      aria-selected="false"
+                      role="tab"
+                    >
+                      ...
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="p-iv">
+                <div className="tab-content">
+                  <div
+                    id="latest-tasks-new"
+                    className="tab-pane active"
+                    role="tabpanel"
+                    aria-labelledby="latest-tasks-new-tab"
+                  >
+                    {/* <!-- No Transaction Found --> */}
+
+                    <div className="flex items-center mt-5">
+                      <div className="border-l-2 border-primary dark:border-primary pl-4">
+                        <a href="/transactions-log" className="font-medium">
+                          View Record
+                        </a>
                       </div>
-                    </div>
-                    <div className="progresBox">
-                      <div className="label">
-                        <h5>profile completion </h5>
-                      </div>
-                      <div className="progress">
-                        <div
-                          className="progress-bar"
-                          role="progressbar"
-                          aria-label="Example with label"
-                          style={{ width: "100%" }}
-                          aria-valuenow={100}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                        >
-                          100%
-                        </div>
+                      <div className="form-check form-switch ml-auto">
+                        <input className="form-check-input" type="checkbox" />
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-lg-7">
-                <div className="userForm">
-                  <form action="#" method="get">
-                    <div className="row">
-                      <div className="col-md-6 mb-3">
-                        <label htmlFor={`id_name`} className="form-label">
-                          First name
-                        </label>
-                        <input
-                          type="text"
-                          name="{name}"
-                          className={"form-control "}
-                          id={`id_$`}
-                          placeholder="first name"
-                          defaultValue={user.first_name}
-                          disabled={true}
-                        />
-                      </div>
-                      <div className="col-md-6 mb-3">
-                        <label htmlFor={`id_name`} className="form-label">
-                          Last name
-                        </label>
-                        <input
-                          type="text"
-                          name="{name}"
-                          className={"form-control "}
-                          id={`id_$`}
-                          placeholder="last name"
-                          defaultValue={user.last_name}
-                          disabled={true}
-                        />
-                        <p className="invalid-feedback"> </p>
-                      </div>
-                      <div className="col-md-6 mb-3">
-                        <label htmlFor={`id_name`} className="form-label">
-                          Date of birth
-                        </label>
-                        <input
-                          type="text"
-                          name="{name}"
-                          className={"form-control "}
-                          id={`id_$`}
-                          placeholder="Date of birth"
-                          defaultValue={user.date_of_birth}
-                          disabled={true}
-                        />
-                        <p className="invalid-feedback"> </p>
-                      </div>
-                      <div className="col-md-6 mb-3">
-                        <label htmlFor={`id_name`} className="form-label">
-                          Email
-                        </label>
-                        <input
-                          type="text"
-                          name="{name}"
-                          className={"form-control "}
-                          id={`id_$`}
-                          placeholder="email"
-                          defaultValue={user.email}
-                          disabled={true}
-                        />
-                        <p className="invalid-feedback"> </p>
-                      </div>
-                      <div className="col-md-6 mb-3">
-                        <label htmlFor={`id_name`} className="form-label">
-                          Phone number
-                        </label>
-                        <input
-                          type="text"
-                          name="{name}"
-                          className={"form-control "}
-                          id={`id_$`}
-                          placeholder="phone number"
-                          defaultValue={user.phone_number}
-                          disabled={true}
-                        />
-                        <p className="invalid-feedback"> </p>
-                      </div>
-                      <div className="col-md-6 mb-3">
-                        <label htmlFor={`id_name`} className="form-label">
-                          Security pin
-                        </label>
-                        <input
-                          type="text"
-                          name="{name}"
-                          className={"form-control "}
-                          id={`id_$`}
-                          placeholder="security pin"
-                          defaultValue={user.security_pin}
-                          disabled={true}
-                        />
-                        <p className="invalid-feedback"> </p>
-                      </div>
-                      <div className="col-md-12 mb-3">
-                        <label htmlFor={`id_name`} className="form-label">
-                          Next of kin
-                        </label>
-                        <input
-                          type="text"
-                          name="{name}"
-                          className={"form-control "}
-                          id={`id_$`}
-                          placeholder="next of kin"
-                          defaultValue={user.next_of_kin}
-                          disabled={true}
-                        />
-                        <p className="invalid-feedback"> </p>
-                      </div>
-                      <div className="col-md-12 mb-3">
-                        <label htmlFor={`id_name`} className="form-label">
-                          Street name
-                        </label>
-                        <input
-                          type="text"
-                          name="{name}"
-                          className={"form-control "}
-                          id={`id_$`}
-                          placeholder="street name"
-                          defaultValue={user.address}
-                          disabled={true}
-                        />
-                        <p className="invalid-feedback"> </p>
-                      </div>
-                      <div className="col-md-6 mb-3">
-                        <label htmlFor={`id_name`} className="form-label">
-                          City
-                        </label>
-                        <input
-                          type="text"
-                          name="{name}"
-                          className={"form-control "}
-                          id={`id_$`}
-                          placeholder="city"
-                          disabled={true}
-                          defaultValue={user.city}
-                        />
-                        <p className="invalid-feedback"> </p>
-                      </div>
-                      <div className="col-md-6 mb-3">
-                        <label htmlFor={`id_name`} className="form-label">
-                          State
-                        </label>
-                        <input
-                          type="text"
-                          name="{name}"
-                          className={"form-control "}
-                          id={`id_$`}
-                          placeholder="state"
-                          defaultValue={user.state}
-                          disabled={true}
-                        />
-                        <p className="invalid-feedback"> </p>
-                      </div>
-                      <div className="col-md-6 mb-3">
-                        <label htmlFor={`id_name`} className="form-label">
-                          Zipcode
-                        </label>
-                        <input
-                          type="text"
-                          name="{name}"
-                          className={"form-control "}
-                          id={`id_$`}
-                          placeholder="zipcode"
-                          defaultValue={user.zipcode}
-                          disabled={true}
-                        />
-                        <p className="invalid-feedback"> </p>
-                      </div>
-                      <div className="col-md-6 mb-3">
-                        <label htmlFor={`id_name`} className="form-label">
-                          Country
-                        </label>
-                        <input
-                          type="text"
-                          name="{name}"
-                          className={"form-control "}
-                          id={`id_$`}
-                          placeholder="Country"
-                          defaultValue={user.country}
-                          disabled={true}
-                        />
-                        <p className="invalid-feedback"> </p>
-                      </div>
-                    </div>
-                  </form>
-                </div>
+            </div>
+            {/* <!-- END: Latest Tasks -->
+        <!-- BEGIN: General Statistics -->
+
+        <!-- END: General Statistics --> */}
+          </div>
+        </div>
+
+        <div className="col-span-12 sm:col-span-12 2xl:col-span-3 intro-y">
+          <div className="box p-iv zoom-in">
+            <div className="flex">
+              <div className="text-lg font-medium truncate mr-3"></div>
+
+              <div>
+                This site provides information about and access to services
+                offered by the Institution and all its respective affiliates or
+                partners.
+                <br />
+                ©2022 All rights reserved.
+              </div>
+              <div className="py-1 px-2 flex items-center rounded-full text-xs bg-slate-100 dark:bg-darkmode-400 text-slate-500 cursor-pointer ml-auto truncate">
+                <img src="/home/logo_verisign.gif" width="93" height="52" />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <PreiviewImage closeModal={closeModal} sendImg={sendImg} />
+      <PreiviewImage
+        closeModal={closeModal}
+        sendImg={sendImg}
+        previeIMG={previeIMG}
+      />
     </>
   );
 };

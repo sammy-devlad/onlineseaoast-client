@@ -248,8 +248,8 @@ const Dashboard = () => {
               <div className="intro-y col-span-12 md:col-span-6 box">
                 <div className="h-[320px] before:block before:absolute before:w-full before:h-full before:top-0 before:left-0 before:z-10 before:bg-gradient-to-t before:from-black/90 before:to-black/10 image-fit">
                   <img alt="e" className="rounded-t-md" src="/home/bank2.jpg" />
-                  <div className="absolute w-full flex items-center px-5 pt-6 z-10"></div>
-                  <div className="absolute bottom-0 text-white px-5 pb-6 z-10">
+                  <div className="absolute w-full flex items-center px-iv pt-6 z-10"></div>
+                  <div className="absolute bottom-0 text-white px-iv pb-6 z-10">
                     <span className="bg-white/20 px-2 py-1 rounded">
                       Online Savings Bank
                     </span>
@@ -262,7 +262,7 @@ const Dashboard = () => {
                   Offering tailor made banking products and high quality
                   solutions that create value for you.
                 </div>
-                <div className="flex items-center px-5 py-3 border-t border-slate-200/60 dark:border-darkmode-400"></div>
+                <div className="flex items-center px-iv py-3 border-t border-slate-200/60 dark:border-darkmode-400"></div>
               </div>
             </div>
             {/* <!-- END: Sales Report -->

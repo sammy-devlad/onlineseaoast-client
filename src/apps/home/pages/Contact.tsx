@@ -72,10 +72,10 @@ const Contact = () => {
                     <div className="contacts-support__title">Support</div>
                     <div className="contacts-support__value text-truncate">
                       <a
-                        href="mailto:support@onlineseacoastacct.net"
+                        href="mailto:support@onlineseacoast.com"
                         target="_blank"
                       >
-                        support@onlineseacoastacct.net
+                        support@onlineseacoast.com
                       </a>
                     </div>
                   </div>
